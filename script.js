@@ -1,20 +1,4 @@
-function Jukebox() {
-this.library = [];
-this.playSong = playSong;
-this.stopSong = stopSong;
-this.loadSong = loadSong;
-this.pauseSong = pauseSong;
-this.playList = playList
-} 
-
 var myJukebox = new Jukebox()
-
-function Song(fileName, artist, title) {
-this.fileName = fileName
-this.artist = artist
-this.title = title
-myJukebox.library.push(this)
-}
 
 var gentleMind = new Song("gentle-mind.mp3", "Billy Bragg and Joe Henry", "Gentle On My Mind")
 var louisCollins = new Song("louis-collins.mp3", "Mississippi John Hurt", "Louis Collins Blues")
@@ -30,10 +14,9 @@ var jukebox = document.getElementsByClassName("jukebox")[0]
 var buttons = document.getElementById("buttonTarget")
 var songImage = document.getElementsByClassName("song-image")[0]
 
-function loadSong (song) {
-	jukebox.src = song.fileName;
-
-}
+myJukebox.loadSong(gentleMind)
+myJukebox.loadSong(louisCollins)
+myJukebox.loadSong(yeshe)
 
 var currentSong = 0
 
@@ -64,9 +47,6 @@ function nextSong() {
 	jukebox.play();
 }
 
-// if (jukebox.src === "yeshe.mp3"){
-// 	songImage.innerHTML += "<img src= 'harhar.jpg'>"
-// }
 
 stopButton.addEventListener("click", stopSong)
 function stopSong() {
@@ -103,7 +83,35 @@ document.body.addEventListener("keypress",function (event) {
 })
 
 
+function Jukebox() {
+this.library = [];
+this.playSong = playSong;
+this.stopSong = stopSong;
+this.loadSong = loadSong;
+this.pauseSong = pauseSong;
+this.playList = playList
 
+
+function loadSong (song) {
+	this.library.push(song)
+}
+
+} 
+
+
+
+function Song(fileName, artist, title) {
+this.fileName = fileName
+this.artist = artist
+this.title = title
+// myJukebox.library.push(this)
+}
+// 	console.log(songImage.innerHTML)
+// console.log(jukebox.src)
+// if (jukebox.src === "file:///C:/Users/Ian/Desktop/jukebox/yeshe.mp3"){
+// 	songImage.innerHTML += "<img src= 'harhar.jpg'>"
+// 	console.log(songImage.innerHTML)
+// }
 
 
 
