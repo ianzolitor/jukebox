@@ -11,8 +11,9 @@ var pauseButton = document.getElementsByClassName("pause-button")[0]
 var nextButton = document.getElementsByClassName("next-button")[0]
 var stopButton = document.getElementsByClassName("stop-button")[0]
 var jukebox = document.getElementsByClassName("jukebox")[0]
-var buttons = document.getElementById("buttonTarget")
+var buttons = document.getElementsByClassName("button")
 var songImage = document.getElementsByClassName("song-image")[0]
+var skynyrd = document.getElementsByClassName("skynyrd")[0]
 
 myJukebox.loadSong(gentleMind)
 myJukebox.loadSong(louisCollins)
@@ -21,7 +22,6 @@ myJukebox.loadSong(yeshe)
 var currentSong = 0
 
 jukebox.src = myJukebox.library[currentSong].fileName
-
 
 playButton.addEventListener("click",playSong)
 function playSong() {
@@ -47,22 +47,18 @@ function nextSong() {
 	jukebox.play();
 }
 
-
 stopButton.addEventListener("click", stopSong)
 function stopSong() {
 	jukebox.src = myJukebox.library[currentSong].fileName;
 	songArtist.innerHTML = "";
 	songTitle.innerHTML = "";
 }
-
-function playList() {
-	// return this.library
-}
-
-
-buttons.addEventListener("mouseover", function (event) {
+for (var i = 0; i < buttons.length; i++) {
+	buttons[i].addEventListener("mouseover", function (event) {
 	event.target.style.cursor = "pointer"
 })
+}
+
 
 document.body.addEventListener("keypress",function (event) {
 	if(event.keyCode === 32) {
@@ -82,6 +78,9 @@ document.body.addEventListener("keypress",function (event) {
 	}
 })
 
+skynyrd.addEventListener("click", function (event){
+	alert("Lynryd Skynyrd is NOT ALLOWED!")
+})
 
 function Jukebox() {
 this.library = [];
@@ -91,21 +90,23 @@ this.loadSong = loadSong;
 this.pauseSong = pauseSong;
 this.playList = playList
 
-
 function loadSong (song) {
 	this.library.push(song)
-}
-
+	}
 } 
-
-
 
 function Song(fileName, artist, title) {
 this.fileName = fileName
 this.artist = artist
 this.title = title
-// myJukebox.library.push(this)
 }
+
+
+function playList() {
+	// return this.library
+}
+// console.log(jukebox.src)
+
 // 	console.log(songImage.innerHTML)
 // console.log(jukebox.src)
 // if (jukebox.src === "file:///C:/Users/Ian/Desktop/jukebox/yeshe.mp3"){

@@ -9,7 +9,9 @@ body {
 	background-color: lightblue;
 }
 
-h1 {
+.title {
+	background-color: tan;
+
 	text-align: center;
 	font-size: 55px;
 }
@@ -22,12 +24,22 @@ h2 {
 	text-align: center;;
 	font-size: 30px
 }
-.song-image {
+.music-library {
 	margin:0 auto;
 	width:350px;
 	height:200px;
 	border:3px solid black;
 
+}
+
+.skynyrd {
+	margin:0 auto;
+	margin-top: 20px;
+	width:150px;
+	height:90px;
+	font-size:20px;
+	border:2px solid black;
+	text-align: center;
 
 }
 
