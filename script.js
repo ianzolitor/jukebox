@@ -14,6 +14,8 @@ var jukebox = document.getElementsByClassName("jukebox")[0]
 var buttons = document.getElementsByClassName("button")
 var songImage = document.getElementsByClassName("song-image")[0]
 var skynyrd = document.getElementsByClassName("skynyrd")[0]
+var songClick1 = document.getElementsByClassName("click-play")[1]
+var songClick2 = document.getElementsByClassName("click-play")[2]
 
 myJukebox.loadSong(gentleMind)
 myJukebox.loadSong(louisCollins)
@@ -22,13 +24,16 @@ myJukebox.loadSong(yeshe)
 var currentSong = 0
 
 jukebox.src = myJukebox.library[currentSong].fileName
+songArtist.innerHTML = myJukebox.library[currentSong].artist
+songTitle.innerHTML = myJukebox.library[currentSong].title
+songClick1.innerHTML = "Click to Play " + myJukebox.library[currentSong +1].title
+songClick2.innerHTML = "Click to Play " + myJukebox.library[currentSong +2].title
 
 playButton.addEventListener("click",playSong)
 function playSong() {
 	jukebox.play();
 	songArtist.innerHTML = myJukebox.library[currentSong].artist
 	songTitle.innerHTML = myJukebox.library[currentSong].title
-
 }
 pauseButton.addEventListener("click", pauseSong)
 function pauseSong() {
@@ -41,9 +46,22 @@ function nextSong() {
 	if (currentSong === myJukebox.library.length){
 		currentSong = 0
 	} 
+	if(currentSong === 1){
+	songClick1.innerHTML = "Click to Play " + myJukebox.library[2].title
+	songClick2.innerHTML = "Click to Play " + myJukebox.library[0].title	
+	}
+	else if(currentSong === 2){
+	songClick1.innerHTML = "Click to Play " + myJukebox.library[0].title
+	songClick2.innerHTML = "Click to Play " + myJukebox.library[1].title	
+	}
+	else if(currentSong === 0){
+	songClick1.innerHTML = "Click to Play " + myJukebox.library[1].title
+	songClick2.innerHTML = "Click to Play " + myJukebox.library[2].title	
+	}
 	jukebox.src = myJukebox.library[currentSong].fileName;
 	songArtist.innerHTML = myJukebox.library[currentSong].artist;
 	songTitle.innerHTML = myJukebox.library[currentSong].title;
+
 	jukebox.play();
 }
 
@@ -78,6 +96,15 @@ document.body.addEventListener("keypress",function (event) {
 	}
 })
 
+songClick1.addEventListener("click", nextSong)
+songClick2.addEventListener("click", function (event){
+	currentSong +=1
+	if (currentSong === myJukebox.library.length){
+		currentSong = 0
+	}
+	nextSong()
+})
+
 skynyrd.addEventListener("click", function (event){
 	alert("Lynryd Skynyrd is NOT ALLOWED!")
 })
@@ -88,7 +115,6 @@ this.playSong = playSong;
 this.stopSong = stopSong;
 this.loadSong = loadSong;
 this.pauseSong = pauseSong;
-this.playList = playList
 
 function loadSong (song) {
 	this.library.push(song)
@@ -101,36 +127,3 @@ this.artist = artist
 this.title = title
 }
 
-
-function playList() {
-	// return this.library
-}
-// console.log(jukebox.src)
-
-// 	console.log(songImage.innerHTML)
-// console.log(jukebox.src)
-// if (jukebox.src === "file:///C:/Users/Ian/Desktop/jukebox/yeshe.mp3"){
-// 	songImage.innerHTML += "<img src= 'harhar.jpg'>"
-// 	console.log(songImage.innerHTML)
-// }
-
-
-
-
-
-
-
-
-
-// var buttons = document.getElementsByClassName("button")
-// for (var i = 0; i < buttons.length; i ++)
-// 	buttons[i].addEventListener("click", function() {
-// 		if (event.target= buttons[0]){
-// 			playSong()
-// 			}
-// 		if(event.target = buttons[1]){
-// 			pauseSong()
-// 			}
-// 	}
-
-// )

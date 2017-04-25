@@ -26,15 +26,18 @@ h2 {
 }
 .music-library {
 	margin:0 auto;
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 	width:350px;
 	height:200px;
 	border:3px solid black;
 
 }
 
-.skynyrd {
-	margin:0 auto;
-	margin-top: 20px;
+.click-play {
+	background-color:tan;
+	margin-top:3px;
 	width:150px;
 	height:90px;
 	font-size:20px;
