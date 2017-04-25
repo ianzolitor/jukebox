@@ -11,7 +11,7 @@ body {
 
 h1 {
 	text-align: center;
-	font-size: 60px;
+	font-size: 55px;
 }
 
 hr {
@@ -34,11 +34,32 @@ h2 {
 
 .button {
 	background-color:tan;
+	background-size:100% 100%;
 	border:4px solid black;
 	width:80px;
-	height:80px;
+	height:70px;
 	padding-top: 40px;
-	font-size: 30px;
+	font-size: 25px;
+	font-weight: bolder;
 	text-align: center;
 	
 }
+
+
+.play-button {
+	background-image: url("play-icon.png");
+}
+
+.pause-button {
+	background-image: url("pause-icon.png");
+}
+
+.next-button {
+	background-image: url("next-icon.png");
+}
+
+.stop-button {
+	background-image: url("stop-icon.png");
+}
+
+
