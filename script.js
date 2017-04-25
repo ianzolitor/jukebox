@@ -28,7 +28,7 @@ var nextButton = document.getElementsByClassName("next-button")[0]
 var stopButton = document.getElementsByClassName("stop-button")[0]
 var jukebox = document.getElementsByClassName("jukebox")[0]
 var buttons = document.getElementById("buttonTarget")
-
+var songImage = document.getElementsByClassName("song-image")[0]
 
 function loadSong (song) {
 	jukebox.src = song.fileName;
@@ -64,6 +64,9 @@ function nextSong() {
 	jukebox.play();
 }
 
+// if (jukebox.src === "yeshe.mp3"){
+// 	songImage.innerHTML += "<img src= 'harhar.jpg'>"
+// }
 
 stopButton.addEventListener("click", stopSong)
 function stopSong() {
@@ -84,9 +87,19 @@ buttons.addEventListener("mouseover", function (event) {
 document.body.addEventListener("keypress",function (event) {
 	if(event.keyCode === 32) {
 		playSong()
-
 	}
-	
+})
+
+document.body.addEventListener("keypress",function (event) {
+	if(event.keyCode === 80) {
+		pauseSong()
+	}
+})
+
+document.body.addEventListener("keypress",function (event) {
+	if(event.keyCode === 78) {
+		nextSong()
+	}
 })
 
 
