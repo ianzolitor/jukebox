@@ -13,6 +13,7 @@ var stopButton = document.getElementsByClassName("stop-button")[0]
 var jukebox = document.getElementsByClassName("jukebox")[0]
 var buttons = document.getElementsByClassName("button")
 var songImage = document.getElementsByClassName("song-image")[0]
+var songButtons = document.getElementsByClassName("click-play")
 var skynyrd = document.getElementsByClassName("skynyrd")[0]
 var songClick1 = document.getElementsByClassName("click-play")[1]
 var songClick2 = document.getElementsByClassName("click-play")[2]
@@ -96,6 +97,11 @@ document.body.addEventListener("keypress",function (event) {
 	}
 })
 
+for (var i = 0; i < songButtons.length; i++) {
+	songButtons[i].addEventListener("mouseover", function (event) {
+	event.target.style.cursor = "pointer"
+})
+}
 songClick1.addEventListener("click", nextSong)
 songClick2.addEventListener("click", function (event){
 	currentSong +=1
