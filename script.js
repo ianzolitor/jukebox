@@ -27,8 +27,7 @@ var pauseButton = document.getElementsByClassName("pause-button")[0]
 var nextButton = document.getElementsByClassName("next-button")[0]
 var stopButton = document.getElementsByClassName("stop-button")[0]
 var jukebox = document.getElementsByClassName("jukebox")[0]
-
-
+var buttons = document.getElementById("buttonTarget")
 
 
 function loadSong (song) {
@@ -78,6 +77,17 @@ function playList() {
 }
 
 
+buttons.addEventListener("mouseover", function (event) {
+	event.target.style.cursor = "pointer"
+})
+
+document.body.addEventListener("keypress",function (event) {
+	if(event.keyCode === 32) {
+		playSong()
+
+	}
+	
+})
 
 
 
